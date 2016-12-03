@@ -1,16 +1,26 @@
 //Main class, has setup and draw functions
 PImage characterSprite;
+player boi;
+
 void setup() {
   
   size(1024, 512);
   frameRate = 60;
   
-  player boi = new player(50, 50, "starterPlayer.png");
+  characterSprite = loadImage("starterPlayer.png");
   
+  boi = new player(50, 100, characterSprite);
   
 }
 
-void Draw() {
-  image(characterSprite, 50, 50);
+void draw() {
+  clear();
+  boi.move();
+  boi.drawCharacter();
   
 }
+
+void keyPressed() {
+  boi.step();
+}
+  
