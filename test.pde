@@ -32,6 +32,35 @@ void gravity(int g, int max){
 
 void collision() {
   if ((playerY > 400) && (playerYVector > 0)) {
-    playerYVector *= -2;
+    playerYVector = 0;
   }
+}
+
+void jump(int force) {
+  if (key == 32) {
+    playerYVector = -1 * force;
+  }
+}
+
+void lateralMove(int speed) {
+  if (key == CODED) {
+    if (keyCode == LEFT){
+      playerXVector = -1 * speed;
+    }
+    
+    if (keyCode == RIGHT) {
+      playerXVector = speed;
+    }
+  }
+}
+void keyReleased(){
+  if (key == CODED) {
+    if ((keyCode == LEFT) || (keyCode == RIGHT)) {
+      playerXVector = 0;
+    }
+  }
+}
+void keyPressed() {
+  jump(20);
+  lateralMove(5);
 }
