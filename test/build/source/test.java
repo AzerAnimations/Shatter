@@ -19,7 +19,7 @@ grass[] testBlocks = new grass[18];
 public void setup() {
   
 
-  PImage character1 = loadImage("wizard_1.png");
+  PImage character1 = loadImage("enemy_barbarian_1.png");
   PImage character2 = loadImage("wizard_2.png");
   PImage terrain1 = loadImage("grass1.png");
 
