@@ -40,6 +40,39 @@ class DynamicObject extends Object {
     return false;
   }
   
+  
+  boolean verticalCollision(Object collider) {
+    
+    
+    // check whether the object is aligned vertically for a collision
+    float a = this.left();
+    float b = this.right();
+    if ( (a >= collider.left() & a <= collider.right() ) || ( b >= collider.left() & b <= collider.right()) ) {
+      
+      
+      
+      // check to see if the object is to the left or to the right of the collider
+      
+      if (this.bottom() <= collider.top()) {
+        if ( ( collider.top() - this.bottom() ) < yVector) {
+          yVector = collider.top() - this.bottom();
+          return true;
+        }
+      }
+      
+      //println(this.left() > collider.right());
+      
+      if (this.top() >= collider.bottom()) {
+        if ( ( collider.bottom() - this.top() ) > yVector) {
+          yVector = collider.bottom() - this.top();
+          return true;
+        }
+      }
+      
+    }
+    return false;
+  }
+  
   void move() {
     super.x += xVector;
     super.y += yVector;

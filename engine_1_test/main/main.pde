@@ -3,15 +3,14 @@ ArrayList<PImage> sprites = new ArrayList<PImage>();
 int[] slimeImg = {0, 1};
 int[] blockImg = {2};
 
-DynamicObject slime = new DynamicObject(200, 280, 20, slimeImg);
-StaticObject block = new StaticObject(100, 290, 20, blockImg);
-StaticObject block2 = new StaticObject(300, 300, 20, blockImg);
+DynamicObject slime = new DynamicObject(200, 30, 20, slimeImg);
+StaticObject block = new StaticObject(200, 200, 20, blockImg);
 
 void setup() {
   size(512, 512);
   loadImages(2);
   
-  slime.xVector = -1;
+  slime.yVector = 1;
   
   
   
@@ -31,19 +30,12 @@ boolean loadImages(int max) {
 
 void draw() {
   background(200,200,200);
-  
-  if (slime.lateralCollision(block)) {
-    slime.xVector = 1;
-  }
-  
-  if (slime.lateralCollision(block2)) {
-    slime.xVector = -1;
-  }
+  slime.lateralCollision(block);
+  slime.verticalCollision(block);
   
   slime.move();
   slime.paint();
   block.paint();
-  block2.paint();
   }
 
   
