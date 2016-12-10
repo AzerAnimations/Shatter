@@ -30,6 +30,7 @@ boolean loadImages(int max) {
 
 void draw() {
   background(200,200,200);
+  slime.gravity();
   slime.lateralCollision(block);
   slime.verticalCollision(block);
   

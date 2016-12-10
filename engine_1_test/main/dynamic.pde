@@ -73,6 +73,13 @@ class DynamicObject extends Object {
     return false;
   }
   
+  void gravity(){
+    yVector += .5;
+    if (yVector > 10) {
+      yVector = 10;
+    }
+  }
+  
   void move() {
     super.x += xVector;
     super.y += yVector;
