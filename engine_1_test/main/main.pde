@@ -48,11 +48,13 @@ void draw() {
 }
 
 void createGround() {
-  for (int i = 0; i < blocks.length -1; i++) {
+  for (int i = 1; i < blocks.length -2; i++) {
     blocks[i] = new Block2(i * sprites.get(2).width, 420);
   }
   
-  blocks[blocks.length - 1] = new Block1 (400, 356);
+  blocks[blocks.length - 2] = new Block1 (400, 356);
+  blocks[0] = new Block2Left (0, 420);
+  blocks[blocks.length - 1] = new Block2Right (8 * 64, 420);
 }
 
 void drawGround() {

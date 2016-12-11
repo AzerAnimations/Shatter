@@ -35,7 +35,7 @@ class Object {
   
   void paint() {
     int cFrame = getCurrentFrame();
-    image(sprites.get(spriteCode[frame]), x + cameraX, y + cameraY);
+    image(sprites.get(spriteCode[frame]), x - cameraX, y - cameraY);
     //image(sprites.get(1), x, y);
   }
 }

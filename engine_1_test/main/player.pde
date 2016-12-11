@@ -14,14 +14,12 @@ class Character extends DynamicObject {
     }
   }
   
-  //void move() {
-  //  latency -= 1;
-  //  if (latency < 1) {
-  //    xVector = 0;
-  //  }
+  void move() {
     
-  //  super.move();
-  //}
+    super.move();
+    
+    cameraX = x - 100;
+  }
   
   void keyMove(float speed) {
     
