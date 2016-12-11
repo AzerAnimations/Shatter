@@ -15,7 +15,7 @@ class DynamicObject extends Object {
     // check whether the object is aligned vertically for a collision
     float a = this.top();
     float b = this.bottom();
-    if ( (a >= collider.top() & a <= collider.bottom() ) || ( b >= collider.top() & b <= collider.bottom()) ) {
+    if ( (a >= collider.top() & a <= collider.bottom() ) || ( b > collider.top() & b < collider.bottom()) ) {
       
       
       

@@ -25,7 +25,12 @@ class Character extends DynamicObject {
   
   void keyMove(float speed) {
     
+    println(xVector);
     
+    
+    if (onGround & !keyPressed){
+      xVector = 0;
+    }
     if (keyPressed & key == 'a') {
       xVector = -1 * speed;
     }
@@ -34,9 +39,6 @@ class Character extends DynamicObject {
       xVector = speed;
     }
     
-    else if (onGround){
-      xVector = 0;
-    }
   }
   
   
