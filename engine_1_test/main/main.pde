@@ -1,5 +1,5 @@
 ArrayList<PImage> sprites = new ArrayList<PImage>();
-StaticObject[] blocks = new StaticObject[10];
+StaticObject[] blocks = new StaticObject[12];
 
 int[] slimeImg = {0, 1};
 
@@ -13,7 +13,7 @@ float cameraY = 0;
 
 void setup() {
   size(512, 512);
-  loadImages(5);
+  loadImages(8);
   
   createGround();
   
@@ -48,13 +48,16 @@ void draw() {
 }
 
 void createGround() {
-  for (int i = 1; i < blocks.length -2; i++) {
-    blocks[i] = new Block2(i * sprites.get(2).width, 420);
+  for (int i = 1; i < 8; i++) {
+    blocks[i] = new Dirt1(i * sprites.get(2).width, 450);
   }
   
-  blocks[blocks.length - 2] = new Block1 (400, 356);
-  blocks[0] = new Block2Left (0, 420);
-  blocks[blocks.length - 1] = new Block2Right (8 * 64, 420);
+  blocks[8] = new Block1 (200, 356);
+  blocks[0] = new Dirt1Left (0, 450);
+  blocks[9] = new Dirt1Right (8 * 64, 450);
+  
+  blocks[10] = new Block1 (300, 280);
+  blocks[11] = new Block1 (400, 356);
 }
 
 void drawGround() {
