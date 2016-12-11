@@ -1,5 +1,6 @@
 class DynamicObject extends Object {
   float xVector, yVector;
+  boolean onGround;
   
   DynamicObject(float inX, float inY, int animDuration, int[] sprites) {
     super.x = inX;
@@ -71,6 +72,28 @@ class DynamicObject extends Object {
       
     }
     return false;
+  }
+  
+  boolean verticalFullCollision( Object[] colliders) {
+    for (Object collider : colliders) {
+      if (verticalCollision(collider)) {
+        //println(true);
+        return true;
+      }
+    }
+    //println(false);
+    return false;
+  }
+  
+  boolean lateralFullCollision(Object[] colliders) {
+    boolean result = false;
+    for (Object collider: colliders) {
+      if (lateralCollision(collider)) {
+        result = true;
+      }
+    }
+    //println(result);
+    return result;
   }
   
   void gravity(){
