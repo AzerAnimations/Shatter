@@ -4,13 +4,13 @@ int[] slimeImg = {0, 1};
 int[] blockImg = {2};
 
 DynamicObject slime = new DynamicObject(200, 30, 20, slimeImg);
-StaticObject block = new StaticObject(200, 200, 20, blockImg);
+StaticObject block = new StaticObject(200, 400, 20, blockImg);
 
 void setup() {
   size(512, 512);
   loadImages(2);
   
-  slime.yVector = 1;
+  slime.yVector = 0;
   
   
   
@@ -32,7 +32,9 @@ void draw() {
   background(200,200,200);
   slime.gravity();
   slime.lateralCollision(block);
-  slime.verticalCollision(block);
+  if (slime.verticalCollision(block)) {
+    slime.yVector = -5 - random(10);
+  }
   
   slime.move();
   slime.paint();
